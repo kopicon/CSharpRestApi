@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MusicListBLL.BusinessObjects
 {
@@ -6,6 +7,9 @@ namespace MusicListBLL.BusinessObjects
     {
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(20)]
+        [MinLength(2)]
         public string Name { get; set; }
 
         public string Style { get; set; }

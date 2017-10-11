@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace MusicListDAL.Entities
+namespace List.Entities
 {
     public class Music
     {
@@ -14,5 +15,6 @@ namespace MusicListDAL.Entities
         {
             get { return $"{Name} {Style}"; }
         }
+        public List<Order> Orders { get; set; }
     }
 }

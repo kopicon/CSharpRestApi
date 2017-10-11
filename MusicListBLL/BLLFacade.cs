@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using MusicListBLL.Services;
-using MusicListDAL;
+using List;
 
 namespace MusicListBLL
 {
@@ -11,6 +11,10 @@ namespace MusicListBLL
         public IMusicService MusicService
         {
             get { return new MusicService(new DALFacade()); }
+        }
+        public IOrderService OrderService
+        {
+            get { return new OrderService(new DALFacade()); }
         }
     }
 }

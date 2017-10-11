@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MusicListDAL.Context;
+using List.Context;
 using System.Linq;
-using MusicListDAL.Entities;
+using List.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace MusicListDAL.Repositories
+namespace List.Repositories
 {
     class MusicRepositoryEFMemory : IMusicRepository
     {
-        InMemoryContext context;
-        public MusicRepositoryEFMemory(InMemoryContext context)
+        MusicAppContext context;
+        public MusicRepositoryEFMemory(MusicAppContext context)
         {
             this.context = context;
         }
@@ -29,7 +30,7 @@ namespace MusicListDAL.Repositories
 
         public List<Music> GetAllMusic()
         {
-            return context.Musics.ToList();
+            return context.Musics.Include(c => c.Orders).ToList();
         }
 
         public Music GetMusic(int Id)

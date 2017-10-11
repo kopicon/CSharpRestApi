@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MusicListDAL
+namespace List
 {
     public interface IUnitOfWork : IDisposable
     {
         IMusicRepository MusicRepository { get; }
+        IOrderRepository OrderRepository { get; }
 
         int Complete();
     }

@@ -1,8 +1,8 @@
-﻿using MusicListDAL.Entities;
+﻿using List.Entities;
 using System.Collections.Generic;
 
 
-namespace MusicListDAL
+namespace List
 {
     public interface IMusicRepository
     {

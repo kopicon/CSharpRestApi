@@ -1,9 +1,9 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
-using MusicListDAL.Entities;
+using List.Entities;
 
-namespace MusicListDAL.Repositories
+namespace List.Repositories
 {
     class MusicRepositoriesFakeDB : IMusicRepository
     {

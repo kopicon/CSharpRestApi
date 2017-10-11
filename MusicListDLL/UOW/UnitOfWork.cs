@@ -1,20 +1,22 @@
-﻿using MusicListDAL.Context;
-using MusicListDAL.Repositories;
+﻿using List.Context;
+using List.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MusicListDAL.UOW
+namespace List.UOW
 {
-    public class UnitOfWorkMem : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         public IMusicRepository MusicRepository { get; internal set; }
-        private InMemoryContext context;
+        public IOrderRepository OrderRepository { get; internal set; }
+        private MusicAppContext context;
 
-        public UnitOfWorkMem()
+        public UnitOfWork()
         {
-            context = new InMemoryContext();
+            context = new MusicAppContext();
             MusicRepository = new MusicRepositoryEFMemory(context);
+            OrderRepository = new OrderRipository(context);
         }
         public int Complete()
         {

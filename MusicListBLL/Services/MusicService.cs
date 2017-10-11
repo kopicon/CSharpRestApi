@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using MusicListDAL;
+using List;
 using MusicListBLL.BusinessObjects;
-using MusicListDAL.Entities;
+using List.Entities;
 using System.Linq;
 using MusicListBLL.Converters;
 
@@ -25,6 +25,18 @@ namespace MusicListBLL.Services
                 var newMusic = uow.MusicRepository.Add(conv.Convert(music));
                 uow.Complete();
                 return conv.Convert(newMusic);
+            }
+        }
+        public void AddAll(List<MusicBO> musics)
+        {
+            using (var uow = facade.UnitOfWork)
+            {
+                foreach (var music in musics)
+                {
+                    uow.MusicRepository.Add(conv.Convert(music));
+                    
+                }
+                uow.Complete(); ;
             }
         }
 
